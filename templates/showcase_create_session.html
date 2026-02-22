@@ -1,0 +1,205 @@
+{% extends "base.html" %}
+{% block title %}Create Session — MentorAI{% endblock %}
+
+{% block content %}
+<div class="page-banner">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8 page-banner-inner">
+                <div class="page-banner-tag"><i class="fas fa-magic"></i> New Session</div>
+                <h1>Create a <span class="gradient-text">Training Session</span></h1>
+                <p>Set up a new live session and connect with eager learners.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-content">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                <div class="glass-panel fade-in-up">
+                    <div class="glass-panel-header">
+                        <h5><i class="fas fa-edit"></i> Session Details</h5>
+                    </div>
+                    <div class="glass-panel-body">
+
+                        <!-- Showcase notice -->
+                        <div
+                            style="background:rgba(99,102,241,0.12);border:1px solid rgba(99,102,241,0.3);border-radius:10px;padding:12px 16px;margin-bottom:24px;font-size:0.82rem;color:var(--text-muted);">
+                            <i class="fas fa-info-circle" style="color:#818cf8;margin-right:6px;"></i>
+                            This is a <strong style="color:#a5b4fc;">showcase demo</strong>. Session creation is not
+                            active in this version.
+                        </div>
+
+                        <form onsubmit="return false;">
+                            <!-- Title + Category -->
+                            <div class="row g-3 mb-0">
+                                <div class="col-md-8">
+                                    <div class="dp-form-group">
+                                        <label class="dp-label" for="title"><i class="fas fa-heading"
+                                                style="margin-right:6px;opacity:0.6;"></i>Session Title</label>
+                                        <input type="text" class="form-control" id="title"
+                                            placeholder="e.g. Python for Data Science Beginners">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="dp-form-group">
+                                        <label class="dp-label" for="category"><i class="fas fa-tag"
+                                                style="margin-right:6px;opacity:0.6;"></i>Category</label>
+                                        <select class="form-select" id="category">
+                                            <option>Programming</option>
+                                            <option>Design</option>
+                                            <option>Business</option>
+                                            <option>Marketing</option>
+                                            <option>Language</option>
+                                            <option>Music</option>
+                                            <option>Fitness</option>
+                                            <option>Academic</option>
+                                            <option>Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Description -->
+                            <div class="dp-form-group">
+                                <label class="dp-label" for="description"><i class="fas fa-align-left"
+                                        style="margin-right:6px;opacity:0.6;"></i>Description</label>
+                                <textarea class="form-control" id="description" rows="4"
+                                    placeholder="Describe what learners will gain from this session..."></textarea>
+                            </div>
+
+                            <div style="height:1px;background:var(--border-glass);margin:12px 0 24px;"></div>
+                            <div
+                                style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent-2);margin-bottom:16px;display:flex;align-items:center;gap:8px;">
+                                <i class="fas fa-calendar-alt"></i> Schedule & Logistics
+                            </div>
+
+                            <!-- Date, Duration, Participants -->
+                            <div class="row g-3 mb-0">
+                                <div class="col-md-5">
+                                    <div class="dp-form-group">
+                                        <label class="dp-label" for="scheduled_time"><i class="fas fa-calendar"
+                                                style="margin-right:6px;opacity:0.6;"></i>Date &amp; Time</label>
+                                        <input type="datetime-local" class="form-control" id="scheduled_time">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="dp-form-group">
+                                        <label class="dp-label" for="duration"><i class="fas fa-clock"
+                                                style="margin-right:6px;opacity:0.6;"></i>Duration (minutes)</label>
+                                        <input type="number" class="form-control" id="duration" min="15" max="480"
+                                            value="60">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="dp-form-group">
+                                        <label class="dp-label" for="max_participants"><i class="fas fa-users"
+                                                style="margin-right:6px;opacity:0.6;"></i>Max Participants</label>
+                                        <input type="number" class="form-control" id="max_participants" min="1" max="10"
+                                            value="1">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Price + Difficulty -->
+                            <div class="row g-3 mb-0">
+                                <div class="col-md-6">
+                                    <div class="dp-form-group">
+                                        <label class="dp-label" for="price"><i class="fas fa-dollar-sign"
+                                                style="margin-right:6px;opacity:0.6;"></i>Price ($)</label>
+                                        <input type="number" class="form-control" id="price" min="0" step="0.01"
+                                            placeholder="0.00">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="dp-form-group">
+                                        <label class="dp-label" for="difficulty"><i class="fas fa-signal"
+                                                style="margin-right:6px;opacity:0.6;"></i>Difficulty Level</label>
+                                        <select class="form-select" id="difficulty">
+                                            <option>Beginner</option>
+                                            <option>Intermediate</option>
+                                            <option>Advanced</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="height:1px;background:var(--border-glass);margin:12px 0 24px;"></div>
+                            <div
+                                style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent-2);margin-bottom:16px;display:flex;align-items:center;gap:8px;">
+                                <i class="fas fa-info-circle"></i> Requirements & Materials
+                            </div>
+
+                            <div class="dp-form-group">
+                                <label class="dp-label" for="prerequisites">Prerequisites</label>
+                                <textarea class="form-control" id="prerequisites" rows="2"
+                                    placeholder="Any prerequisites or requirements for this session..."></textarea>
+                            </div>
+
+                            <div class="dp-form-group">
+                                <label class="dp-label" for="materials">Required Materials</label>
+                                <textarea class="form-control" id="materials" rows="2"
+                                    placeholder="Any materials or tools learners should have..."></textarea>
+                            </div>
+
+                            <!-- Recurring -->
+                            <div
+                                style="display:flex;align-items:center;gap:12px;padding:16px;background:rgba(124,111,205,0.06);border:1px solid rgba(124,111,205,0.15);border-radius:var(--radius-sm);margin-bottom:20px;">
+                                <input type="checkbox" id="is_recurring">
+                                <label for="is_recurring"
+                                    style="font-size:0.88rem;color:var(--text-muted);cursor:pointer;margin:0;">
+                                    <i class="fas fa-sync-alt" style="color:var(--accent-2);margin-right:6px;"></i>This
+                                    is a recurring session
+                                </label>
+                            </div>
+
+                            <div id="recurring-options" style="display:none;margin-bottom:20px;">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="dp-form-group">
+                                            <label class="dp-label">Recurrence Pattern</label>
+                                            <select class="form-select">
+                                                <option>Weekly</option>
+                                                <option>Bi-weekly</option>
+                                                <option>Monthly</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="dp-form-group">
+                                            <label class="dp-label">Number of Sessions</label>
+                                            <input type="number" class="form-control" min="2" max="52" value="4">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Actions -->
+                            <div style="display:flex;gap:12px;justify-content:flex-end;flex-wrap:wrap;">
+                                <a href="{{ url_for('trainer_dashboard') }}" class="btn-outline-custom">Cancel</a>
+                                <button type="submit" class="btn-primary-custom">
+                                    <span><i class="fas fa-plus" style="margin-right:6px;"></i>Create Session</span>
+                                </button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.getElementById('is_recurring').addEventListener('change', function () {
+        document.getElementById('recurring-options').style.display = this.checked ? 'block' : 'none';
+    });
+    const now = new Date();
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    document.getElementById('scheduled_time').min = now.toISOString().slice(0, 16);
+</script>
+{% endblock %}

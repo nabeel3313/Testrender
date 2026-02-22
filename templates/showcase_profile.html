@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+{% block title %}Profile — MentorAI{% endblock %}
+
+{% block content %}
+<div class="page-banner">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col page-banner-inner">
+                <div class="page-banner-tag"><i class="fas fa-user"></i> My Profile</div>
+                <h1>Account <span class="gradient-text">Settings</span></h1>
+                <p>Manage your profile information, specializations, and security settings.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-content">
+    <div class="container">
+        <div class="row g-4">
+
+            <!-- Left Column: Profile Card -->
+            <div class="col-md-4 col-lg-3">
+                <div class="glass-panel mb-4 fade-in-up">
+                    <div class="profile-avatar-wrap">
+                        <div class="profile-avatar-ring">
+                            AJ
+                            <div class="profile-cam-btn"><i class="fas fa-camera"></i></div>
+                        </div>
+                        <div class="profile-name">Alex Johnson</div>
+                        <div class="profile-email">alex.johnson@mentorai.com</div>
+                        <span class="dp-badge dp-badge-primary">
+                            <i class="fas fa-graduation-cap"></i> Learner
+                        </span>
+                    </div>
+
+                    <div class="profile-stats-row">
+                        <div class="profile-stat-cell">
+                            <div class="val">24</div>
+                            <div class="lbl">Sessions</div>
+                        </div>
+                        <div class="profile-stat-cell">
+                            <div class="val">18</div>
+                            <div class="lbl">Completed</div>
+                        </div>
+                        <div class="profile-stat-cell">
+                            <div class="val">Jun 2025</div>
+                            <div class="lbl">Joined</div>
+                        </div>
+                    </div>
+
+                    <div class="glass-panel-body" style="padding:16px;">
+                        <a href="{{ url_for('dashboard') }}" class="quick-action-btn" style="margin-bottom:8px;">
+                            <i class="fas fa-th-large stat-icon-purple"
+                                style="width:32px;height:32px;border-radius:8px;font-size:0.8rem;"></i>
+                            Dashboard
+                        </a>
+                        <a href="{{ url_for('browse_sessions') }}" class="quick-action-btn">
+                            <i class="fas fa-search stat-icon-blue"
+                                style="width:32px;height:32px;border-radius:8px;font-size:0.8rem;"></i>
+                            Browse Sessions
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Edit Form + Password -->
+            <div class="col-md-8 col-lg-9">
+
+                <!-- Showcase notice -->
+                <div
+                    style="background:rgba(99,102,241,0.12);border:1px solid rgba(99,102,241,0.3);border-radius:10px;padding:12px 16px;margin-bottom:20px;font-size:0.82rem;color:var(--text-muted);">
+                    <i class="fas fa-info-circle" style="color:#818cf8;margin-right:6px;"></i>
+                    This is a <strong style="color:#a5b4fc;">showcase demo</strong>. Profile editing is not active in
+                    this version.
+                </div>
+
+                <!-- Edit Profile -->
+                <div class="glass-panel mb-4 fade-in-up">
+                    <div class="glass-panel-header">
+                        <h5><i class="fas fa-user-edit"></i> Edit Profile</h5>
+                    </div>
+                    <div class="glass-panel-body">
+                        <form onsubmit="return false;">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="dp-form-group">
+                                        <label class="dp-label">First Name</label>
+                                        <input type="text" class="form-control" value="Alex">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="dp-form-group">
+                                        <label class="dp-label">Last Name</label>
+                                        <input type="text" class="form-control" value="Johnson">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="dp-form-group">
+                                        <label class="dp-label"><i class="fas fa-envelope"
+                                                style="margin-right:6px;opacity:0.6;"></i>Email Address</label>
+                                        <input type="email" class="form-control" value="alex.johnson@mentorai.com">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="dp-form-group">
+                                        <label class="dp-label"><i class="fas fa-phone"
+                                                style="margin-right:6px;opacity:0.6;"></i>Phone Number</label>
+                                        <input type="text" class="form-control" value="+91 98765 43210">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="dp-form-group">
+                                        <label class="dp-label">Bio</label>
+                                        <textarea class="form-control"
+                                            rows="4">Passionate learner focused on AI and data science. Always looking to expand my skills with expert guidance.</textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="dp-form-group">
+                                        <label class="dp-label"><i class="fas fa-globe"
+                                                style="margin-right:6px;opacity:0.6;"></i>Timezone</label>
+                                        <select class="form-select">
+                                            <option selected>Asia/Kolkata (IST)</option>
+                                            <option>UTC</option>
+                                            <option>America/New_York</option>
+                                            <option>America/Los_Angeles</option>
+                                            <option>Europe/London</option>
+                                            <option>Asia/Singapore</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn-primary-custom">
+                                        <span><i class="fas fa-save" style="margin-right:6px;"></i>Save Changes</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Change Password -->
+                <div class="glass-panel fade-in-up">
+                    <div class="glass-panel-header">
+                        <h5><i class="fas fa-lock"></i> Change Password</h5>
+                    </div>
+                    <div class="glass-panel-body">
+                        <form onsubmit="return false;">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <div class="dp-form-group">
+                                        <label class="dp-label">Current Password</label>
+                                        <input type="password" class="form-control" placeholder="••••••••">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="dp-form-group">
+                                        <label class="dp-label">New Password</label>
+                                        <input type="password" class="form-control" placeholder="••••••••">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="dp-form-group">
+                                        <label class="dp-label">Confirm New Password</label>
+                                        <input type="password" class="form-control" placeholder="••••••••">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn-outline-custom">
+                                        <span>Update Password</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
