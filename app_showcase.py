@@ -223,10 +223,14 @@ def trainer_sessions():
                            stats=Stats())
 
 
-# Redirect unknown routes cleanly to home
+# Named redirect endpoints so url_for() works in templates
 @app.route('/logout')
+def logout():
+    return redirect(url_for('index'))
+
+
 @app.route('/session/<path:session_id>')
-def redirect_home(**kwargs):
+def session_room(session_id):
     return redirect(url_for('index'))
 
 
